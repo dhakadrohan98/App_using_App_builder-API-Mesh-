@@ -22,3 +22,5 @@ The following is required if you intend to use local development features provid
 - Java Development Kit (JDK) (at least Java 11)
 - Chrome debugger extension in VSCode
 - Docker Desktop
+
+Now that you have your environment set up, you can start creating your own App Builder application.
