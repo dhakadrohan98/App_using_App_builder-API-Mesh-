@@ -25,8 +25,8 @@ The following is required if you intend to use local development features provid
 
 Now that you have your environment set up, you can start creating your own App Builder application.
 
-Signing in from CLI & creating app using CLI:
-      1. On your machine, navigate to the Terminal and enter aio login
+Signing in from CLI & creating app using CLI
+      1. On your machine, navigate to the Terminal and enter aio login.
       2. A browser window should open, asking you to sign in with your Adobe ID.
       
 Bootstrapping new App using the CLI:
