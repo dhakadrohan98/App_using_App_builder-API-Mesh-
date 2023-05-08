@@ -39,6 +39,7 @@ async function main (params) {
       return errorResponse(400, errorMessage, logger)
     }
 
+    //create account on go_rest,getting data from local adobe commerce instance.
     const postEndpoint = 'https://gorest.co.in/public/v2/users'
     const body = {
           "name": params.data.value.firstname,
