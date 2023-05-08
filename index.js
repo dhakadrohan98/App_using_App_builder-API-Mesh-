@@ -65,8 +65,36 @@ async function main (params) {
 
     var content = await res.json()
 
+    //send data to magento to update customer's (with id 7 on mageplaza) prefix with customer id & suffix with go_rest id
+    if(res.ok) {
+      const magentoEndPoint = 'https://magento-demo.mageplaza.com/rest/default/V1/customers/7'
+          const magentoBody = { 
+            "customer": {
+                "prefix": params.data.value.id,
+                "suffix": content.id
+          }
+        }
 
-    const response = {
+        //response from adobe commerce 
+        res = await fetch(magentoEndPoint,{
+          method:"PUT",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer eyJraWQiOiI0IiwiYWxnIjoiSFMyNTYifQ.eyJ1aWQiOjIsInV0eXBpZCI6MiwiaWF0IjoxNjgzNTQ5MzI2LCJleHAiOjE2ODM1NTI5MjZ9.6XZ4WCGKiDxVEaYda36qBv7sxIcEXWEKcVzPpRTdms0'
+          },
+          body: JSON.stringify(magentoBody),
+        })
+        //error handling
+        if (!res.ok) {
+          response = {
+            statusCode: 500
+          }
+          return response;
+        }
+        content = await res.json()
+      }
+
+      const response = {
       statusCode: 200,
       body: content
     }
